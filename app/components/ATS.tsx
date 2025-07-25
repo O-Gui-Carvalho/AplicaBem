@@ -38,7 +38,7 @@ const ATS: React.FC<ATSProps> = ({ score, suggestions }) => {
       <div className="flex items-center gap-4 mb-6">
         <img src={iconSrc} alt="ATS Score Icon" className="w-12 h-12" />
         <div>
-          <h2 className="text-2xl font-bold">ATS Score - {score}/100</h2>
+          <h2 className="text-2xl font-bold">Pontuação ATS - {score}/100</h2>
         </div>
       </div>
 
@@ -46,7 +46,7 @@ const ATS: React.FC<ATSProps> = ({ score, suggestions }) => {
       <div className="mb-6">
         <h3 className="text-xl font-semibold mb-2">{subtitle}</h3>
         <p className="text-gray-600 mb-4">
-          This score represents how well your resume is likely to perform in Applicant Tracking Systems used by employers.
+          Essa pontuação representa o desempenho provável do seu currículo nos Sistemas de Rastreamento de Candidatos usados pelos empregadores.
         </p>
 
         {/* Suggestions list */}
@@ -68,7 +68,7 @@ const ATS: React.FC<ATSProps> = ({ score, suggestions }) => {
 
       {/* Closing encouragement */}
       <p className="text-gray-700 italic">
-        Keep refining your resume to improve your chances of getting past ATS filters and into the hands of recruiters.
+        Continue refinando seu currículo para aumentar suas chances de passar pelos filtros do ATS e chegar às mãos dos recrutadores.
       </p>
     </div>
   )

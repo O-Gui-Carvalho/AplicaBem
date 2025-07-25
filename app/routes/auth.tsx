@@ -24,13 +24,13 @@ const auth = () => {
         <div className="gradient-border shadow-lg">
             <section className="flex flex-col gap-8 bg-white rounded-2xl p-10">
                 <div className="flex flex-col items-center gap-2 text-center">
-                    <h1>Welcome</h1>
-                    <h2>Log in to Continue Your Job Journey!</h2>
+                    <h1>Bem Vindo(a)</h1>
+                    <h2>Faça login para continuar sua jornada profissional!</h2>
                 </div>
                 <div>
                     {isLoading ? (
                         <button className="auth-button animate-pulse">
-                            <p>Signing you in...</p>
+                            <p>Fazendo seu login...</p>
                         </button>
                     ): (
                         <>

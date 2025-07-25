@@ -40,9 +40,9 @@ const ScoreBadge = ({ score }: { score: number }) => {
 };
 
 const CategoryHeader = ({
-                          title,
-                          categoryScore,
-                        }: {
+  title,
+  categoryScore,
+}: {
   title: string;
   categoryScore: number;
 }) => {
@@ -55,8 +55,8 @@ const CategoryHeader = ({
 };
 
 const CategoryContent = ({
-                           tips,
-                         }: {
+  tips,
+}: {
   tips: { type: "good" | "improve"; tip: string; explanation: string }[];
 }) => {
   return (

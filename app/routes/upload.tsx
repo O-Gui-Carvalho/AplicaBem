@@ -20,20 +20,20 @@ const upload = () => {
 
     const handleAnalyze = async({companyName, jobTitle, jobDescription, file}: {companyName: string, jobTitle: string, jobDescription: string, file: File}) => {
         setIsProcessing(true);
-        setStatusText('Uploading File...');
+        setStatusText('Enviando arquivo...');
 
         const uploadedFile = await fs.upload([file]);
-        if(!uploadedFile) return setStatusText('Error: Failed to upload file');
+        if(!uploadedFile) return setStatusText('Erro: Falha ao enviar arquivo');
 
-        setStatusText('Converting to image...');
+        setStatusText('Convertendo para imagem...');
         const imageFile = await convertPdfToImage(file);
-        if(!imageFile.file) return setStatusText('Error: Failed to convert PDF to image');
+        if(!imageFile.file) return setStatusText('Erro: Falha ao converter PDF para imagem');
 
-        setStatusText('Uploading the image...');
+        setStatusText('Enviando imagem...');
         const uploadedImage = await fs.upload([imageFile.file]);
-        if(!uploadedImage) return setStatusText('Error: Failed to upload image');
+        if(!uploadedImage) return setStatusText('Erro: Falha ao enviar imagem');
 
-        setStatusText('Preparing Data...');
+        setStatusText('Preparando...');
         const uuid = generateUUID();
 
         const data = {
@@ -45,7 +45,7 @@ const upload = () => {
         }
         await kv.set(`resume:${uuid}`, JSON.stringify(data));
 
-        setStatusText('Analyzing...');
+        setStatusText('Analisando...');
 
         const feedback = await ai.feedback(
             uploadedFile.path,
@@ -53,7 +53,7 @@ const upload = () => {
         )
 
         if (!feedback) {
-            return setStatusText('Error: Failed to analyze resume');
+            return setStatusText('Erro: Falha ao analisar!');
         }
 
 
@@ -61,7 +61,7 @@ const upload = () => {
     
         data.feedback = JSON.parse(feedbackText);
         await kv.set(`resume:${uuid}`, JSON.stringify(data));
-        setStatusText('Analysis complete, redirecting...');
+        setStatusText('Analise completa, redirecionando...');
         console.log(data);
         navigate(`/resume/${uuid}`);
     }
@@ -86,36 +86,36 @@ const upload = () => {
         <Navbar/>
         <section className="main-section">
             <div className="page-heading py-16">
-                <h1>Smart feedback for your dream job</h1>
+                <h1>Feedback inteligente para o emprego dos seus sonhos</h1>
                 {isProcessing ? (
                     <>
                         <h2>{statusText}</h2>
                         <img src="/images/resume-scan.gif" alt="" className='w-full'/>
                     </>
                 ) : (
-                    <h2>Drop your resume for an ATS score and improvement tips</h2>
+                    <h2>Envie seu currículo para obter uma pontuação ATS e dicas de melhoria</h2>
                 )}
                 {!isProcessing && (
                     <form id="upload-form" onSubmit={handleSubmit} className='flex flex-col gap-4 mt-8'>
                         <div className="form-div">
-                            <label htmlFor="company-name">Company Name</label>
+                            <label htmlFor="company-name">Nome da empresa</label>
                             <input type="text" name='company-name' placeholder='Company Name' id='company-name' />
                         </div>
                         <div className="form-div">
-                            <label htmlFor="job-title">Job Title</label>
+                            <label htmlFor="job-title">Cargo</label>
                             <input type="text" name='job-title' placeholder='Job Title' id='job-title' />
                         </div>
                         <div className="form-div">
-                            <label htmlFor="job-description">Job Description</label>
+                            <label htmlFor="job-description">Descrição da vaga</label>
                             <textarea rows={5} name='job-description' placeholder='Job Description' id='job-description'></textarea>
                         </div>
                         <div className="form-div">
-                            <label htmlFor="uploader">Upload Resume</label>
+                            <label htmlFor="uploader">Enviar Currículo</label>
                             <FileUploader onFileSelect={handleFileSelect}/>
                         </div>
 
                         <button className="primary-button" type='submit'>
-                            Analyze Resume
+                            Análisar currículo
                         </button>
                     </form>
                 )}

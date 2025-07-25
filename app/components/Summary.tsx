@@ -27,10 +27,10 @@ const Summary = ({feedback} : {feedback: Feedback}) => {
 
             <div className="flex flex-col gap-2">
                 <h2 className="text-2xl font-bold">
-                    Your Resume Score
+                    Sua pontuação no currículo
                 </h2>
                 <p className="text-sm text-gray-500">
-                    This score is calculated based on the variables listed bellow.
+                    Esta pontuação é calculada com base nas variáveis listadas abaixo.
                 </p>
             </div>
         </div>
