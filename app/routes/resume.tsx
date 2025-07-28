@@ -6,8 +6,8 @@ import Summary from '~/components/Summary';
 import { usePuterStore } from '~/lib/puter';
 
 export const meta = () => ([
-    {title: 'Resumind | Auth'},
-    {name: 'description', content: 'Detailed overview of your resume'},
+    {title: 'AplicaBem | Resultado'},
+    {name: 'description', content: 'Veja o resultado da análise!'},
 ])
 
 const resume = () => {

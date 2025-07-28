@@ -20,7 +20,7 @@
 
 html,
 body {
-  @apply bg-[linear-gradient(135deg,_hsla(180,54%,13%,1)_0%,_hsla(0,0%,5%,1)_25%,_hsla(0,0%,5%,1)_50%,_hsla(0,0%,5%,1)_75%,_hsla(330,55%,13%,1)_100%)];
+  @apply bg-[linear-gradient(135deg,rgba(16,64,64,1)_0%,rgba(13,13,13,1)_25%,rgba(13,13,13,1)_50%,rgba(13,13,13,1)_75%,rgba(64,36,16,1)_100%)];
 }
 
 main {

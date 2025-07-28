@@ -7,6 +7,11 @@ import { convertPdfToImage } from '~/lib/pdf2img';
 import { usePuterStore } from '~/lib/puter';
 import { generateUUID } from '~/lib/utils';
 
+export const meta = () => ([
+    {title: 'AplicaBem | Envio'},
+    {name: 'description', content: 'Envie seu curriculo e a descrição da vaga!'},
+])
+
 const upload = () => {
     const {auth, isLoading, fs, ai, kv} = usePuterStore();
     const navigate = useNavigate();
