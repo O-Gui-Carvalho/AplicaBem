@@ -39,16 +39,19 @@ export default function Home() {
     loadResumes()
   }, []);
 
-  return <main className="bg-[url('/images/bg-main.svg')] bg-cover">
+  return (
+    
+    <main>
+
     <Navbar />
 
     <section className="main-section">
       <div className="page-heading py-16">
         <h1>Acompanhe suas inscrições e avaliações de currículo</h1>
         {!loadingResumes && resumes?.length === 0 ? (
-            <h2>Nenhum currículo encontrado. Envie seu primeiro currículo para receber feedback.</h2>
+            <p className="text-white font-light text-xl">Nenhum currículo encontrado. Envie seu primeiro currículo para receber feedback.</p>
         ): (
-          <h2>Revise seus envios e verifique o feedback gerado com nossa IA.</h2>
+          <p className="text-white font-light text-xl">Revise seus envios e verifique o feedback gerado com nossa IA.</p>
         )}
       </div>
       {loadingResumes && (
@@ -74,4 +77,5 @@ export default function Home() {
       )}
     </section>
   </main>
+  )
 }

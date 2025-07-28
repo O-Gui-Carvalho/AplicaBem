@@ -82,39 +82,39 @@ const upload = () => {
     }
 
   return (
-    <main className="bg-[url('/images/bg-main.svg')] bg-cover">
+    <main>
         <Navbar/>
         <section className="main-section">
             <div className="page-heading py-16">
                 <h1>Feedback inteligente para o emprego dos seus sonhos</h1>
                 {isProcessing ? (
                     <>
-                        <h2>{statusText}</h2>
+                        <p className="text-white font-light text-xl">{statusText}</p >
                         <img src="/images/resume-scan.gif" alt="" className='w-full'/>
                     </>
                 ) : (
-                    <h2>Envie seu currículo para obter uma pontuação ATS e dicas de melhoria</h2>
+                    <p className="text-white font-light text-xl">Envie seu currículo para obter uma pontuação ATS e dicas de melhoria</p >
                 )}
                 {!isProcessing && (
                     <form id="upload-form" onSubmit={handleSubmit} className='flex flex-col gap-4 mt-8'>
                         <div className="form-div">
                             <label htmlFor="company-name">Nome da empresa</label>
-                            <input type="text" name='company-name' placeholder='Company Name' id='company-name' />
+                            <input type="text" name='company-name' id='company-name' />
                         </div>
                         <div className="form-div">
                             <label htmlFor="job-title">Cargo</label>
-                            <input type="text" name='job-title' placeholder='Job Title' id='job-title' />
+                            <input type="text" name='job-title' id='job-title' />
                         </div>
                         <div className="form-div">
                             <label htmlFor="job-description">Descrição da vaga</label>
-                            <textarea rows={5} name='job-description' placeholder='Job Description' id='job-description'></textarea>
+                            <textarea rows={5} name='job-description' id='job-description'></textarea>
                         </div>
                         <div className="form-div">
                             <label htmlFor="uploader">Enviar Currículo</label>
                             <FileUploader onFileSelect={handleFileSelect}/>
                         </div>
 
-                        <button className="primary-button" type='submit'>
+                        <button className="primary-button text-2xl" type='submit'>
                             Análisar currículo
                         </button>
                     </form>
