@@ -46,7 +46,7 @@ export default function Home() {
     <Navbar />
 
     <section className="main-section">
-      <div className="page-heading py-16">
+      <div className="page-heading pt-16 pb-4">
         <h1>Acompanhe suas inscrições e avaliações de currículo</h1>
         {!loadingResumes && resumes?.length === 0 ? (
             <p className="text-white font-light text-xl">Nenhum currículo encontrado. Envie seu primeiro currículo para receber feedback.</p>
@@ -69,8 +69,8 @@ export default function Home() {
       )}
 
       {!loadingResumes && resumes?.length === 0 && (
-          <div className="flex flex-col items-center justify-center mt-10 gap-4">
-            <Link to="/upload" className="primary-button w-fit text-xl font-semibold">
+          <div className="flex flex-col items-center justify-center gap-4">
+            <Link to="/upload" className="primary-button w-fit">
               Enviar Currículo
             </Link>
           </div>

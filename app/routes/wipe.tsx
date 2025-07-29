@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import Navbar from "~/components/Navbar";
 import { usePuterStore } from "~/lib/puter";
 
 const WipeApp = () => {
@@ -39,25 +40,30 @@ const WipeApp = () => {
     }
 
     return (
-        <div>
-            Authenticated as: {auth.user?.username}
-            <div>Existing files:</div>
-            <div className="flex flex-col gap-4">
-                {files.map((file) => (
-                    <div key={file.id} className="flex flex-row gap-4">
-                        <p>{file.name}</p>
+        <main className="h-screen flex flex-col">
+            <Navbar/>
+            <div className="flex flex-grow items-center justify-center">
+                <div className="text-white bg-[#1f1f1f] w-full max-w-[1000px] rounded-xl flex flex-col items-center justify-center gap-4 p-8 mx-4">
+                    <span className="text-xl font-semibold">Logado como: {auth.user?.username}</span>
+                    <div>Arquivos encontrados:</div>
+                    <div className="flex flex-col gap-4">
+                        {files.map((file) => (
+                            <div key={file.id} className="flex flex-row gap-4">
+                                <p>{file.name}</p>
+                            </div>
+                        ))}
                     </div>
-                ))}
+                    <div>
+                        <button
+                            className="primary-button"
+                            onClick={() => handleDelete()}
+                        >
+                            Excluir arquivos
+                        </button>
+                    </div>
+                </div>
             </div>
-            <div>
-                <button
-                    className="bg-blue-500 text-white px-4 py-2 rounded-md cursor-pointer"
-                    onClick={() => handleDelete()}
-                >
-                    Wipe App Data
-                </button>
-            </div>
-        </div>
+        </main>
     );
 };
 

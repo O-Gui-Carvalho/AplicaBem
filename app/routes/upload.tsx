@@ -95,7 +95,7 @@ const upload = () => {
                 {isProcessing ? (
                     <>
                         <p className="text-white font-light text-xl">{statusText}</p >
-                        <img src="/images/resume-scan.gif" alt="" className='w-full'/>
+                        <img src="/images/resume-scan.gif" alt="" className='w-[200px]'/>
                     </>
                 ) : (
                     <p className="text-white font-light text-xl">Envie seu currículo para obter uma pontuação ATS e dicas de melhoria</p >
@@ -104,22 +104,22 @@ const upload = () => {
                     <form id="upload-form" onSubmit={handleSubmit} className='flex flex-col gap-4 mt-8'>
                         <div className="form-div">
                             <label htmlFor="company-name">Nome da empresa</label>
-                            <input type="text" name='company-name' id='company-name' />
+                            <input required type="text" name='company-name' id='company-name' />
                         </div>
                         <div className="form-div">
                             <label htmlFor="job-title">Cargo</label>
-                            <input type="text" name='job-title' id='job-title' />
+                            <input required type="text" name='job-title' id='job-title' />
                         </div>
                         <div className="form-div">
                             <label htmlFor="job-description">Descrição da vaga</label>
-                            <textarea rows={5} name='job-description' id='job-description'></textarea>
+                            <textarea required rows={5} name='job-description' id='job-description'></textarea>
                         </div>
                         <div className="form-div">
                             <label htmlFor="uploader">Enviar Currículo</label>
                             <FileUploader onFileSelect={handleFileSelect}/>
                         </div>
 
-                        <button className="primary-button text-2xl" type='submit'>
+                        <button className="primary-button" type='submit'>
                             Análisar currículo
                         </button>
                     </form>

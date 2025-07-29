@@ -106,7 +106,7 @@ const resume = () => {
                         <Details feedback={feedback}/>
                     </div>
                 ): (
-                    <img src="/images/resume-scan-2.gif" className='w-full' />
+                    <img src="/images/resume-scan-2.gif" className='w-[200px]' />
                 )}
             </section>
         </div>
