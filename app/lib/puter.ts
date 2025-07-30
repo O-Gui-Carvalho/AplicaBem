@@ -334,24 +334,36 @@ export const usePuterStore = create<PuterStore>((set, get) => {
       return;
     }
 
-    return puter.ai.chat(
-      [
-        {
-          role: "user",
-          content: [
-            {
-              type: "file",
-              puter_path: path,
-            },
-            {
-              type: "text",
-              text: message,
-            },
-          ],
-        },
-      ],
-      { model: "claude-sonnet-4" }
-    ) as Promise<AIResponse | undefined>;
+    const payload: ChatMessage[] = [
+      {
+        role: "user",
+        content: [
+          {
+            type: "file",
+            puter_path: path,
+          },
+          {
+            type: "text",
+            text: message,
+          },
+        ],
+      },
+    ];
+
+    const models = ["claude-sonnet-4", "claude-3-7-sonnet"];
+
+    for (const model of models) {
+      try {
+        const response = await puter.ai.chat(payload, { model });
+        if (response) return response;
+      } catch (err) {
+        console.warn(`Modelo "${model}" falhou:`, err);
+        continue; // tenta o próximo
+      }
+    }
+
+    setError("Nenhum modelo de IA disponível no momento.");
+    return;
   };
 
   const img2txt = async (image: string | File | Blob, testMode?: boolean) => {
