@@ -34,7 +34,8 @@ Este foi o **meu primeiro projeto integrando inteligência artificial** a uma ap
 
 ## 🌐 Disponibilidade
 
-O projeto estará disponível em breve com deploy na **Vercel**. Atualizarei este repositório assim que a versão final for publicada.
+O projeto está disponível publicamente em:  
+🔗 [AplicaBem](https://aplica-bem.vercel.app/)
 
 ## 🧑‍💼 Ideal para
 
